@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"os"
 
+	"github.com/YukiHime23/go-todolist/internal/server"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,11 +16,7 @@ func main() {
 
 	router := gin.Default()
 
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
-	})
+	server.RegisterRoutes(router)
 
 	router.Run(":8080")
 }
